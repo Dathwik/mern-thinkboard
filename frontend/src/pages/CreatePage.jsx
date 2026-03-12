@@ -1,20 +1,39 @@
 import{ useState, React } from 'react';
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { ArrowLeftIcon } from "lucide-react"
 import toast from "react-hot-toast"
+import api from "../lib/axios"
 
 const CreatePage = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     
     if(!title.trim() || !content.trim()){
       toast.error("Title and Content are missing")
       return;
     }
+
+    setLoading(true)
+    try {
+      await api.post("/notes", {
+        title,
+        content
+      })
+      toast.success("Note created successfully!")
+      navigate("/")
+    } catch (error) {
+      console.log("Error creating note!")
+      toast.error("Failed to create note")
+    } finally {
+      setLoading(false);
+    }
+
   }
 
   return (
