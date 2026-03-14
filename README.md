@@ -11,7 +11,7 @@ ThinkBoard allows users to create, update, view, and delete notes in a clean and
 🔗 **Live Application:**  
 https://mern-thinkboard-egmo.onrender.com/
 
-⚠️ Note: The app is deployed on **Render's free tier**, so it may take **30–60 seconds to load initially** due to server cold starts after inactivity. :contentReference[oaicite:0]{index=0}
+⚠️ Note: The app is deployed on **Render's free tier**, so it may take **30–60 seconds to load initially** due to server cold starts after inactivity.
 
 ---
 
